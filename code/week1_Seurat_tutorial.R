@@ -6,8 +6,8 @@ install.packages("Seurat")
 library(Seurat) 
 
 getwd()
-setwd('..')
-data <- read.table('data/Smart-Seq2.txt', header = TRUE, row.names = 1)
+# setwd('..')
+data <- read.table('data/GSE102130.txt', header = TRUE, row.names = 1)
 
 # -------- explore --------
 
@@ -17,7 +17,7 @@ data <- read.table('data/Smart-Seq2.txt', header = TRUE, row.names = 1)
 
 
 # Create the Seurat object
-glioma <- CreateSeuratObject(counts = mydata, min.cells = 300, min.features = 200)
+glioma <- CreateSeuratObject(counts = data, min.cells = 300, min.features = 200)
 
 # the "counts" slot
 GetAssayData(object = glioma, slot = "counts")

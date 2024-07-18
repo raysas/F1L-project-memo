@@ -164,27 +164,49 @@ NCI-60 is a panel of 60 human cancer cell lines, a project released by NCI for 6
 
 Antibodies are proteins that are produced by the immune system to fight antigens. This is a treatment form against infection, disease, cancer. In case of cancer, antibodies target cancer cells to block their growth, their spread or even kill them. 
 
-__Monoclonal antibodies__: made in the lab, they are designed to target a specific antigen. They can be used to block the growth of cancer cells or the signals that allow it. It's becoming a main common treatment to use, particularyy on cancer. They can be produced in large quanitites, they are quite specific hence more effective.  
+__Monoclonal antibodies (MABs)__: made in the lab, they are designed to target a specific antigen. They can be used to block the growth of cancer cells or the signals that allow it. It's becoming a main common treatment to use, particularyy on cancer. They can be produced in large quanitites, they are quite specific hence more effective.
+
+<p align='center'><img src='./assets/week1-MABs.png' width=70%></p>
+
+_fun fact: their names end with mab, e.g., rituximab_
+
+Apparently, monoclonal antibody treatment is a known cancer treatment, it's used to treat cancer by targeting specific proteins on cancer cells. It's a type of immunotherapy, it is expensive though. It can be thought of as as a type of personalized medecine (?). 
+
+Pros on using them are:
+* they are very specific
+* treat different types of cancer
+* can combine with other treatments
+
+
+They can have side effects including:  
+* inflamation 
+* fever
+* fatigue
+* pain
+* diarrhea
+* nausea
+* swelling....
+
 
 
 ### Data & code: 📊
 
-- [Smart-Seq2 dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
+- [Glioma dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
 ```bash 
 # downloading the data - 65 mb
 curl https://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102130/suppl/GSE102130%5FK27Mproject.RSEM.vh20170621.txt.gz > data/Smart-Seq2.txt.gz
-gunzip data/Smart-Seq2.txt.gz #makes it ~250mb
+gunzip data/GSE102130.txt.gz #makes it ~250mb
 ```
 
 - [R code for Seurat exploration](code/week1_Seurat_tutorial.R)
 
 ### Findings & Insights: 🧠
 
-___Suggestions for the KSQ___:  
-The cell to cell resolution provided in scRNAseq allows for detection of differentially expressed genes among the cells. These can show activation of certain functions, mechanisms or pathways in certain cells. This way we can identify antigens of target to block the unexpecte (wrong) behavior that can be characterized by the expression signatures. This way we aim for to find the right targets and use the right antibodies to block them; suggested workflow similar to this:    
+___Suggestions for the KSQ (so far)___:  
+The cell to cell resolution provided in scRNAseq allows for detection of differentially expressed genes among the cells. These can show activation of certain functions, mechanisms or pathways in certain cells. This way we can identify (cell surface?) antigens of target to block the unexpected (wrong) behavior that can be characterized by the expression signatures. This way we aim for to find the right targets and use the right antibodies to block them; suggested workflow similar to this:    
 * perform scRNA-seq =>   
 * downstream analysis =>   
-* identigy biomarkers/targets =>  
+* identigy antigen targets =>  
 * detect FDA-approved antibodies that target these biomarkers =>  
 * test them in vitro/in vivo =>  
 * validate the results.
@@ -194,7 +216,6 @@ _It's a very broad idea that requires refinement and a detailed plan to be imple
 To-do:  
 - [ ] Explore `Seurat` package in R
 - [ ] Read papers on the process
-- [ ] Explore the data
 - [ ] Refine the plan
 
 ### References: 📚
@@ -210,3 +231,5 @@ To-do:
 * [Gillet JP, Varma S, Gottesman MM. The clinical relevance of cancer cell lines. J Natl Cancer Inst. 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946/)  
 * [Monoclonal antibodies - Cleaveland clinic](https://my.clevelandclinic.org/health/treatments/22246-monoclonal-antibodies)  
 * [A single-cell analysis of breast cancer cell lines to study tumour heterogeneity and drug response - _Nature communications_](https://www.nature.com/articles/s41467-022-29358-6)
+* [Monoclonal antibodies (MABs)](https://www.cancerresearchuk.org/about-cancer/treatment/targeted-cancer-drugs/types/monoclonal-antibodies)
+* [Developmental and oncogenic programs in H3K27M gliomas dissected by single-cell RNA-seq - _Science_](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)
