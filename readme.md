@@ -2,11 +2,19 @@
 
 As introduced in [Dean Lee's linkedin newsletter](https://www.linkedin.com/pulse/introducing-f1l-internship-emulator-dean-lee-xckee/), the F1L Internship Emulator is an example of computational bio (intern) work in biotech/pharma. Following the recommendation of the author in [the first week's atricle](https://www.linkedin.com/pulse/week-1-f1l-internship-emulator-ksq-dean-lee-354ke/?trackingId=7%2BNj91jVSHm3z92bY3RYIg%3D%3D), this will be a documentation of my progress in the F1L project.
 
+Table of contents:
+- [F1L Internship Emulator - personal memo 📝](#f1l-internship-emulator---personal-memo-)
+  - [Week 1: The Key Scientific Question 🔎](#week-1-the-key-scientific-question-)
+    - [Terms \& Concepts: 🗒️](#terms--concepts-️)
+    - [Data \& code: 📊](#data--code-)
+    - [Findings \& Insights: 🧠](#findings--insights-)
+    - [References: 📚](#references-)
+
 ## Week 1: The Key Scientific Question 🔎
 
 ***The KSQ: Using available scRNA-seq data from cancer cell lines, how would you explore the use of the following FDA-approved antibody therapies in additional cancers?***
 
-### Terms:  
+### Terms & Concepts: 🗒️  
 
 **scRNA-seq**:  
 single-cell RNA sequencing, technique used to quantify gene expression levels of cells, where unlike bulk RNA-seq, the samples are _cells_, the feature are genes. The data is processed into a matrix of cells x genes. It allows for cell to cell comparison by highlighting the differences between a population of cells. This has won Nature method of the year in 2013.  
@@ -78,10 +86,88 @@ It's the ability of cancer cells to spread to specific organs. It's not random, 
 
 **Cancer Cell Lines**:
 
+<p align='center'>
+<img src='./assets/week1-cancer-cell-line.png'>
+</p>
+
+Cancer cell lines are cells that are grown in a lab, they are immortalized and can be used for research. They are used to study cancer biology, drug discovery, and personalized medicine. They are used to study the biology of cancer, to test drugs...
+
+NCI-60 is a panel of 60 human cancer cell lines, a project released by NCI for 60 cell lines (involving 9 cancers) to be used for drug screening => generated the "most extensive cancer pharmacology database in the world".
+
+[This is a list of the 60 human cancer cell lines used in the screen and maintained at NCI-Frederick. - NIH](https://dtp.cancer.gov/discovery_development/nci-60/cell_list.htm)  
+
+| Cell Line Name        | Panel Name            | Doubling Time | Inoculation Density |
+|-----------------------|-----------------------|---------------|---------------------|
+| CCRF-CEM              | Leukemia              | 26.7          | 40000               |
+| HL-60(TB)             | Leukemia              | 28.6          | 40000               |
+| K-562                 | Leukemia              | 19.6          | 5000                |
+| MOLT-4                | Leukemia              | 27.9          | 30000               |
+| RPMI-8226             | Leukemia              | 33.5          | 20000               |
+| SR                    | Leukemia              | 28.7          | 20000               |
+| A549/ATCC             | Non-Small Cell Lung   | 22.9          | 7500                |
+| EKVX                  | Non-Small Cell Lung   | 43.6          | 20000               |
+| HOP-62                | Non-Small Cell Lung   | 39            | 10000               |
+| HOP-92                | Non-Small Cell Lung   | 79.5          | 20000               |
+| NCI-H226              | Non-Small Cell Lung   | 61            | 20000               |
+| NCI-H23               | Non-Small Cell Lung   | 33.4          | 20000               |
+| NCI-H322M             | Non-Small Cell Lung   | 35.3          | 20000               |
+| NCI-H460              | Non-Small Cell Lung   | 17.8          | 7500                |
+| NCI-H522              | Non-Small Cell Lung   | 38.2          | 20000               |
+| COLO 205              | Colon                 | 23.8          | 15000               |
+| HCC-2998              | Colon                 | 31.5          | 15000               |
+| HCT-116               | Colon                 | 17.4          | 5000                |
+| HCT-15                | Colon                 | 20.6          | 10000               |
+| HT29                  | Colon                 | 19.5          | 5000                |
+| KM12                  | Colon                 | 23.7          | 15000               |
+| SW-620                | Colon                 | 20.4          | 10000               |
+| SF-268                | CNS                   | 33.1          | 15000               |
+| SF-295                | CNS                   | 29.5          | 10000               |
+| SF-539                | CNS                   | 35.4          | 15000               |
+| SNB-19                | CNS                   | 34.6          | 15000               |
+| SNB-75                | CNS                   | 62.8          | 20000               |
+| U251                  | CNS                   | 23.8          | 7500                |
+| LOX IMVI              | Melanoma              | 20.5          | 7500                |
+| MALME-3M              | Melanoma              | 46.2          | 20000               |
+| M14                   | Melanoma              | 26.3          | 15000               |
+| MDA-MB-435            | Melanoma              | 25.8          | 15000               |
+| SK-MEL-2              | Melanoma              | 45.5          | 20000               |
+| SK-MEL-28             | Melanoma              | 35.1          | 10000               |
+| SK-MEL-5              | Melanoma              | 25.2          | 10000               |
+| UACC-257              | Melanoma              | 38.5          | 20000               |
+| UACC-62               | Melanoma              | 31.3          | 10000               |
+| IGR-OV1               | Ovarian               | 31            | 10000               |
+| OVCAR-3               | Ovarian               | 34.7          | 10000               |
+| OVCAR-4               | Ovarian               | 41.4          | 15000               |
+| OVCAR-5               | Ovarian               | 48.8          | 20000               |
+| OVCAR-8               | Ovarian               | 26.1          | 10000               |
+| NCI/ADR-RES           | Ovarian               | 34            | 15000               |
+| SK-OV-3               | Ovarian               | 48.7          | 20000               |
+| 786-0                 | Renal                 | 22.4          | 10000               |
+| A498                  | Renal                 | 66.8          | 25000               |
+| ACHN                  | Renal                 | 27.5          | 10000               |
+| CAKI-1                | Renal                 | 39            | 10000               |
+| RXF 393               | Renal                 | 62.9          | 15000               |
+| SN12C                 | Renal                 | 29.5          | 15000               |
+| TK-10                 | Renal                 | 51.3          | 15000               |
+| UO-31                 | Renal                 | 41.7          | 15000               |
+| PC-3                  | Prostate              | 27.1          | 7500                |
+| DU-145                | Prostate              | 32.3          | 10000               |
+| MCF7                  | Breast                | 25.4          | 10000               |
+| MDA-MB-231/ATCC       | Breast                | 41.9          | 20000               |
+| MDA-MB-468            | Breast                | 62            | 2000                |
+| HS 578T               | Breast                | 53.8          | 20000               |
+| MDA-N                 | Breast                | 22.5          | 15000               |
+| BT-549                | Breast                | 53.9          | 20000               |
+| T-47D                 | Breast                | 45.5          | 20000               |
+
 **FDA-approved antibody therapies**:
 
+Antibodies are proteins that are produced by the immune system to fight antigens. This is a treatment form against infection, disease, cancer. In case of cancer, antibodies target cancer cells to block their growth, their spread or even kill them. 
 
-### Data & code:
+__Monoclonal antibodies__: made in the lab, they are designed to target a specific antigen. They can be used to block the growth of cancer cells or the signals that allow it. It's becoming a main common treatment to use, particularyy on cancer. They can be produced in large quanitites, they are quite specific hence more effective.  
+
+
+### Data & code: 📊
 
 - [Smart-Seq2 dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
 ```bash 
@@ -92,7 +178,26 @@ gunzip data/Smart-Seq2.txt.gz #makes it ~250mb
 
 - [R code for Seurat exploration](code/week1_Seurat_tutorial.R)
 
-### References:  
+### Findings & Insights: 🧠
+
+___Suggestions for the KSQ___:  
+The cell to cell resolution provided in scRNAseq allows for detection of differentially expressed genes among the cells. These can show activation of certain functions, mechanisms or pathways in certain cells. This way we can identify antigens of target to block the unexpecte (wrong) behavior that can be characterized by the expression signatures. This way we aim for to find the right targets and use the right antibodies to block them; suggested workflow similar to this:    
+* perform scRNA-seq =>   
+* downstream analysis =>   
+* identigy biomarkers/targets =>  
+* detect FDA-approved antibodies that target these biomarkers =>  
+* test them in vitro/in vivo =>  
+* validate the results.
+
+_It's a very broad idea that requires refinement and a detailed plan to be implemented - maybe going through each step in depth_.
+
+To-do:  
+- [ ] Explore `Seurat` package in R
+- [ ] Read papers on the process
+- [ ] Explore the data
+- [ ] Refine the plan
+
+### References: 📚
 * [Single Cell Sequencing in a Nutshell - TheScientist](https://www.the-scientist.com/single-cell-sequencing-in-a-nutshell-71048)    
 * [Human Cell Atlas](https://www.humancellatlas.org/learn-more/#event-launch-of-the-human-cell-atlas)  
 * [The Why and How of scRNA-Seq – A Guide for Beginners](https://www.parsebiosciences.com/blog/the-why-and-how-of-scrna-seq-a-guide-for-beginners/)  
@@ -100,4 +205,8 @@ gunzip data/Smart-Seq2.txt.gz #makes it ~250mb
 * [Single-Cell RNA Sequencing (scRNA-seq) Data Analysis With R - medium](https://medium.com/@s.islambey/single-cell-rna-sequencing-scrna-seq-data-analysis-with-r-7e9fd4bc9e88)  
 * [ANALYSIS OF SINGLE CELL RNA-SEQ DATA](https://broadinstitute.github.io/2019_scWorkshop/data-preprocessing.html)
 * [Smart-Seq2 dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
-* [Cancer Cell Biology for Beginners - youtube playlist](https://www.youtube.com/playlist?list=PLNrGtdJ6nPMh8JSe1JhYmBDrQ52whsZps)
+* [Cancer Cell Biology for Beginners - youtube playlist](https://www.youtube.com/playlist?list=PLNrGtdJ6nPMh8JSe1JhYmBDrQ52whsZps)  
+* [NCI-60 Cancer Cell Line](https://www.nexcelom.com/applications/cellometer/bright-field/nci-60-cancer-cell-lines/)  
+* [Gillet JP, Varma S, Gottesman MM. The clinical relevance of cancer cell lines. J Natl Cancer Inst. 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946/)  
+* [Monoclonal antibodies - Cleaveland clinic](https://my.clevelandclinic.org/health/treatments/22246-monoclonal-antibodies)  
+* [A single-cell analysis of breast cancer cell lines to study tumour heterogeneity and drug response - _Nature communications_](https://www.nature.com/articles/s41467-022-29358-6)
