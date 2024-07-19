@@ -1,5 +1,10 @@
 # F1L Internship Emulator - personal memo 📝
 
+<img src='https://visitor-badge.laobi.icu/badge?page_id=raysas.F1L-project-memo&right_color=yellow'> 
+
+<!-- <img src='https://api.github.com/repos/raysas/F1L-project-memo/traffic/clones'> -->
+
+
 As introduced in [Dean Lee's linkedin newsletter](https://www.linkedin.com/pulse/introducing-f1l-internship-emulator-dean-lee-xckee/), the F1L Internship Emulator is an example of computational bio (intern) work in biotech/pharma. Following the recommendation of the author in [the first week's atricle](https://www.linkedin.com/pulse/week-1-f1l-internship-emulator-ksq-dean-lee-354ke/?trackingId=7%2BNj91jVSHm3z92bY3RYIg%3D%3D), this will be a documentation of my progress in the F1L project.
 
 Table of contents:
@@ -179,23 +184,39 @@ Pros on using them are:
 
 
 They can have side effects including:  
-* inflamation 
-* fever
-* fatigue
-* pain
-* diarrhea
-* nausea
-* swelling....
+inflamation, fever, fatigue, pain, diarrhea, nausea, swelling....
+
+_What do MABs do (biologically)?_  
+- block cancer growth signals: cancer cells have groth factors as cell receptors, MABs can target these and affect receibing the required signal to proceed with its growth and progression
+- conjugated MABs (with radtion or drugs): some MABs are coupled with a drug/radioactive substance (radiotherapy done on cancer cells)  
+- assist immune system: either attach to cancer cells to guide immune cells to them or bind on targets that block immune system from defending
+- anti angiogenic drugs: these MABs block VGEF (cascular endothelial growth fact) that play a role in connecting with blood vessels walls
+
+MAB treatment is usually done through infusion or rarely through subcutaneous injection.
+
+**scRNA-seq for drug development:**  
+
+Since signgle cell allow for identifying cellulary heterogeneity, disease related cell types can then be identified. From gene expression patterns we can infer potential biomarkers that have functional roles in the progression of a disease. the process can also be used to screen for differences upon the drug treatment, i.e., look for drug responses which will help in 1. optimize the treatment process and 2. keep track of the patients conditions.  
 
 
 
 ### Data & code: 📊
 
-- [Glioma dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
+- [Glioma dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130) (the data is huge better find something else to try it on)  
 ```bash 
 # downloading the data - 65 mb
-curl https://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102130/suppl/GSE102130%5FK27Mproject.RSEM.vh20170621.txt.gz > data/Smart-Seq2.txt.gz
-gunzip data/GSE102130.txt.gz #makes it ~250mb
+curl https://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102130/suppl/GSE102130%5FK27Mproject.RSEM.vh20170621.txt.gz > data/GSE102130-glioma.txt.gz
+gunzip data/GSE102130-glioma.txt.gz #makes it ~250mb
+```
+
+- [scRNA-seq 35 benchmark datasets through SimBenchData](https://bioconductor.org/packages/release/data/experiment/html/SimBenchData.html)  
+```r
+#isntalling the R package through bioconductor
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("SimBenchData")
+
+library(SimBenchData)
 ```
 
 - [R code for Seurat exploration](code/week1_Seurat_tutorial.R)
@@ -231,5 +252,7 @@ To-do:
 * [Gillet JP, Varma S, Gottesman MM. The clinical relevance of cancer cell lines. J Natl Cancer Inst. 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946/)  
 * [Monoclonal antibodies - Cleaveland clinic](https://my.clevelandclinic.org/health/treatments/22246-monoclonal-antibodies)  
 * [A single-cell analysis of breast cancer cell lines to study tumour heterogeneity and drug response - _Nature communications_](https://www.nature.com/articles/s41467-022-29358-6)
-* [Monoclonal antibodies (MABs)](https://www.cancerresearchuk.org/about-cancer/treatment/targeted-cancer-drugs/types/monoclonal-antibodies)
-* [Developmental and oncogenic programs in H3K27M gliomas dissected by single-cell RNA-seq - _Science_](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)
+* [Monoclonal antibodies (MABs) - Cancer Research UK](https://www.cancerresearchuk.org/about-cancer/treatment/targeted-cancer-drugs/types/monoclonal-antibodies)
+* [Developmental and oncogenic programs in H3K27M gliomas dissected by single-cell RNA-seq - _Science_](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
+* [SimBenchData - _Bioconductor_ package](https://bioconductor.org/packages/release/data/experiment/html/SimBenchData.html)  
+* [Applications of single-cell RNA sequencing in drug discovery and development - _Nature reviews drug discovery_](https://www.nature.com/articles/s41573-023-00688-4)  
