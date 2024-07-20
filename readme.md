@@ -101,6 +101,8 @@ NCI-60 is a panel of 60 human cancer cell lines, a project released by NCI for 6
 
 [This is a list of the 60 human cancer cell lines used in the screen and maintained at NCI-Frederick. - NIH](https://dtp.cancer.gov/discovery_development/nci-60/cell_list.htm)  
 
+<details><summary></summary>
+
 | Cell Line Name        | Panel Name            | Doubling Time | Inoculation Density |
 |-----------------------|-----------------------|---------------|---------------------|
 | CCRF-CEM              | Leukemia              | 26.7          | 40000               |
@@ -165,6 +167,8 @@ NCI-60 is a panel of 60 human cancer cell lines, a project released by NCI for 6
 | BT-549                | Breast                | 53.9          | 20000               |
 | T-47D                 | Breast                | 45.5          | 20000               |
 
+</details>
+
 **FDA-approved antibody therapies**:
 
 Antibodies are proteins that are produced by the immune system to fight antigens. This is a treatment form against infection, disease, cancer. In case of cancer, antibodies target cancer cells to block their growth, their spread or even kill them. 
@@ -209,6 +213,8 @@ curl https://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102130/suppl/GSE102130
 gunzip data/GSE102130-glioma.txt.gz #makes it ~250mb
 ```
 
+
+
 - [scRNA-seq 35 benchmark datasets through SimBenchData](https://bioconductor.org/packages/release/data/experiment/html/SimBenchData.html)  
 ```r
 #isntalling the R package through bioconductor
@@ -249,10 +255,13 @@ To-do:
 * [Smart-Seq2 dataset from GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
 * [Cancer Cell Biology for Beginners - youtube playlist](https://www.youtube.com/playlist?list=PLNrGtdJ6nPMh8JSe1JhYmBDrQ52whsZps)  
 * [NCI-60 Cancer Cell Line](https://www.nexcelom.com/applications/cellometer/bright-field/nci-60-cancer-cell-lines/)  
-* [Gillet JP, Varma S, Gottesman MM. The clinical relevance of cancer cell lines. J Natl Cancer Inst. 2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946/)  
+* [The clinical relevance of cancer cell lines - _J Natl Cancer Inst_](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946/)  
 * [Monoclonal antibodies - Cleaveland clinic](https://my.clevelandclinic.org/health/treatments/22246-monoclonal-antibodies)  
 * [A single-cell analysis of breast cancer cell lines to study tumour heterogeneity and drug response - _Nature communications_](https://www.nature.com/articles/s41467-022-29358-6)
 * [Monoclonal antibodies (MABs) - Cancer Research UK](https://www.cancerresearchuk.org/about-cancer/treatment/targeted-cancer-drugs/types/monoclonal-antibodies)
 * [Developmental and oncogenic programs in H3K27M gliomas dissected by single-cell RNA-seq - _Science_](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE102130)  
 * [SimBenchData - _Bioconductor_ package](https://bioconductor.org/packages/release/data/experiment/html/SimBenchData.html)  
-* [Applications of single-cell RNA sequencing in drug discovery and development - _Nature reviews drug discovery_](https://www.nature.com/articles/s41573-023-00688-4)  
+* [Applications of single-cell RNA sequencing in drug discovery and development - _Nature reviews drug discovery_](https://www.nature.com/articles/s41573-023-00688-4) 
+* [Applications of Single-Cell RNA Sequencing in Drug Discovery and Development - Medium](https://medium.com/@cd-genomics/applications-of-single-cell-rna-sequencing-in-drug-discovery-and-development-257edea1a56a) 
+* [The value of RNA sequencing in drug discovery - Tempus](https://www.tempus.com/resources/content/articles/the-value-of-rna-sequencing-in-drug-discovery/)  
+* [Complete single-cell RNAseq analysis walkthrough | Advanced introduction - youtube video](https://www.youtube.com/watch?v=uvyG9yLuNSE&list=PPSV)

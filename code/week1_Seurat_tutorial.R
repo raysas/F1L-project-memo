@@ -7,14 +7,14 @@ library(Seurat)
 
 getwd()
 # setwd('..')
-data <- read.table('data/GSE102130.txt', header = TRUE, row.names = 1)
 
 # -------- explore --------
 
-
+dim(data)
 
 # -------- tutorial --------
 
+data <- read.table('data/GSE102130.txt', header = TRUE, row.names = 1)
 
 # Create the Seurat object
 glioma <- CreateSeuratObject(counts = data, min.cells = 300, min.features = 200)
