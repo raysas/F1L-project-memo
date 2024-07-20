@@ -12,7 +12,6 @@ Table of contents:
   - [Week 1: The Key Scientific Question 🔎](#week-1-the-key-scientific-question-)
     - [Terms \& Concepts: 🗒️](#terms--concepts-️)
     - [Data \& code: 📊](#data--code-)
-    - [Findings \& Insights: 🧠](#findings--insights-)
     - [References: 📚](#references-)
 
 ## Week 1: The Key Scientific Question 🔎
@@ -198,9 +197,27 @@ _What do MABs do (biologically)?_
 
 MAB treatment is usually done through infusion or rarely through subcutaneous injection.
 
+
+
 **scRNA-seq for drug development:**  
 
 Since signgle cell allow for identifying cellulary heterogeneity, disease related cell types can then be identified. From gene expression patterns we can infer potential biomarkers that have functional roles in the progression of a disease. the process can also be used to screen for differences upon the drug treatment, i.e., look for drug responses which will help in 1. optimize the treatment process and 2. keep track of the patients conditions.  
+
+--------------------------------------------------
+
+**Trastuzumab**: Targets HER2 and is used in the treatment of HER2-positive breast and gastric cancers.
+
+Human epidermal growth factor 2 (HER2) helps in cell growth and division.
+HER2 positive means that the cancer cells (breast or cancer) have a lot of HER2 receptors; iff HER2 positive than can use Trastuzumab. It can be injected in bloodstrsam or under the skin.
+
+_how to use scRNAseq to explore the use of Trastuzumab in additional cancers?_  
+
+scRNAseq allows us to identify the cell types involved in a disease. This way we can look for cell types that are HER2 positive (showing high expression of HER2) and then test the effect of Trastuzumab on these cells. This way we can see if the drug can be used in other cancers that have HER2 positive cells.
+
+
+**Bevacizumab**: Targets VEGF and is used for a variety of cancers, including colorectal, lung, glioblastoma, breast, liver, and kidney cancer.
+
+This one targets VEGF, so its a anti angiogenesis treatment. It stops cancer from growing and metastisizing (blocking its growth to blood vessels).
 
 
 
@@ -212,8 +229,6 @@ Since signgle cell allow for identifying cellulary heterogeneity, disease relate
 curl https://ftp.ncbi.nlm.nih.gov/geo/series/GSE102nnn/GSE102130/suppl/GSE102130%5FK27Mproject.RSEM.vh20170621.txt.gz > data/GSE102130-glioma.txt.gz
 gunzip data/GSE102130-glioma.txt.gz #makes it ~250mb
 ```
-
-
 
 - [scRNA-seq 35 benchmark datasets through SimBenchData](https://bioconductor.org/packages/release/data/experiment/html/SimBenchData.html)  
 ```r
@@ -227,9 +242,8 @@ library(SimBenchData)
 
 - [R code for Seurat exploration](code/week1_Seurat_tutorial.R)
 
-### Findings & Insights: 🧠
+<!-- ### Findings & Insights: 🧠
 
-___Suggestions for the KSQ (so far)___:  
 The cell to cell resolution provided in scRNAseq allows for detection of differentially expressed genes among the cells. These can show activation of certain functions, mechanisms or pathways in certain cells. This way we can identify (cell surface?) antigens of target to block the unexpected (wrong) behavior that can be characterized by the expression signatures. This way we aim for to find the right targets and use the right antibodies to block them; suggested workflow similar to this:    
 * perform scRNA-seq =>   
 * downstream analysis =>   
@@ -238,12 +252,12 @@ The cell to cell resolution provided in scRNAseq allows for detection of differe
 * test them in vitro/in vivo =>  
 * validate the results.
 
-_It's a very broad idea that requires refinement and a detailed plan to be implemented - maybe going through each step in depth_.
+
 
 To-do:  
 - [ ] Explore `Seurat` package in R
 - [ ] Read papers on the process
-- [ ] Refine the plan
+- [ ] Refine the plan -->
 
 ### References: 📚
 * [Single Cell Sequencing in a Nutshell - TheScientist](https://www.the-scientist.com/single-cell-sequencing-in-a-nutshell-71048)    
@@ -265,3 +279,5 @@ To-do:
 * [Applications of Single-Cell RNA Sequencing in Drug Discovery and Development - Medium](https://medium.com/@cd-genomics/applications-of-single-cell-rna-sequencing-in-drug-discovery-and-development-257edea1a56a) 
 * [The value of RNA sequencing in drug discovery - Tempus](https://www.tempus.com/resources/content/articles/the-value-of-rna-sequencing-in-drug-discovery/)  
 * [Complete single-cell RNAseq analysis walkthrough | Advanced introduction - youtube video](https://www.youtube.com/watch?v=uvyG9yLuNSE&list=PPSV)
+* [Trastuzumab - The Cancer Research UK](https://www.cancerresearchuk.org/about-cancer/treatment/drugs/trastuzumab#:~:text=Trastuzumab%20is%20a%20type%20of,factor%20receptor%202%20(HER2).)  
+* [Bevacizumab - The Cancer Research UK](https://www.cancerresearchuk.org/about-cancer/treatment/drugs/bevacizumab#:~:text=Bevacizumab%20is%20a%20type%20of,in%20combination%20with%20another%20drug.)

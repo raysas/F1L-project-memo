@@ -8,10 +8,6 @@ library(Seurat)
 getwd()
 # setwd('..')
 
-# -------- explore --------
-
-dim(data)
-
 # -------- tutorial --------
 
 data <- read.table('data/GSE102130.txt', header = TRUE, row.names = 1)
